@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+node_modules
+bower_components
+.metadata
+.idea
+.c9
+Thumbs.db
+*.zip
+npm-debug.log
