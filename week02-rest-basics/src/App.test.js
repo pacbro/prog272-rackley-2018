@@ -14,14 +14,14 @@ describe('jest test', function() {
 
    it('renders and reads H1 text', () => {
        const wrapper = shallow(<App />);
-       const welcome = <h2>Welcome to React</h2>;
+       const welcome = <h1 className="App-title">Welcome to React</h1>;
        expect(wrapper.contains(welcome)).toEqual(true);
    });
    
    it('renders state of File paragraph after button click', () => {
    const wrapper = shallow(<App />);
    const nineSign = <p className="App-intro">file: url-file.js</p>;
-   wrapper.find('#getNine').simulate('click');
+   wrapper.find('#getFile').simulate('click');
    expect(wrapper.contains(nineSign)).toEqual(true);
 });
 
