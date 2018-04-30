@@ -17,8 +17,7 @@ constructor(props) {
         zip: address.zip,
         phone: address.phone,
         fax: address.fax,
-        tollfree: address.tollfree,
-        website: address.website
+        tollfree: address.tollfree
     }
 
 }
@@ -36,19 +35,22 @@ setAddress = () => {
           zip: address.zip,
           phone: address.phone,
           fax: address.fax,
-          tollfree: address.tollfree,
-          website: address.website
+          tollfree: address.tollfree
       })    
 };
   render() {
     return (
-      <div className="App">
+      <div className="Address">
         <p className="App-intro">firstName: {this.state.firstName}</p>
         <p className="App-intro">lastName: {this.state.lastName}</p>
         <p className="App-intro">address: {this.state.address}</p>
         <p className="App-intro">city: {this.state.city}</p>
         <p className="App-intro">state: {this.state.state}</p>
         <p className="App-intro">zip: {this.state.zip}</p>
+        <p className="App-intro">phone: {this.state.phone}</p>
+        <p className="App-intro">fax: {this.state.fax}</p>
+        <p className="App-intro">tollFree: {this.state.tollFree}</p>
+        
         <button className="setAddress" onClick={this.setAddress}>Set Address</button>
       </div>
     );

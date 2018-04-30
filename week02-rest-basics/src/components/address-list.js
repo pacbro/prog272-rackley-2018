@@ -1,5 +1,3 @@
-import Address from './components/Address'
-
 const unknown = 'unknown';
 const addresses = [
     {
