@@ -1,11 +1,5 @@
-import React, {Component} from 'react';
-import {
-    Button,
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
+import React, { Component } from 'react';
+import { Button, AppRegistry, StyleSheet, Text, View } from 'react-native';
 
 export default class ReactNativeStarter extends Component {
     constructor(props) {
@@ -13,7 +7,6 @@ export default class ReactNativeStarter extends Component {
         this.state = {
             foo: 'expo try state'
         };
-
     }
 
     fetchAddress = () => {
@@ -21,14 +14,15 @@ export default class ReactNativeStarter extends Component {
         const that = this;
         const ip = 'ccalvert.com';
         fetch('http://' + ip + ':30027/you-rang')
-            .then((response) => response.json())
+            .then(response => response.json())
             .then(function(result) {
                 this.collection = result.allData;
                 that.setState({
-                    foo: result.result,
+                    foo: result.result
                 });
-            }).catch(function(ex) {
-                that.setState({foo: 'qux error'});
+            })
+            .catch(function(ex) {
+                that.setState({ foo: 'qux error' });
             });
     };
 
@@ -38,9 +32,7 @@ export default class ReactNativeStarter extends Component {
         return (
             <View style={styles.container}>
                 <Text>Getting started now</Text>
-                <Text style={styles.instructions}>
-                    {this.state.foo}
-                </Text>
+                <Text style={styles.instructions}>{this.state.foo}</Text>
 
                 <Button
                     onPress={this.fetchAddress}
@@ -58,10 +50,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F5FCFF',
         alignItems: 'center',
-        justifyContent: 'center',
-    },
+        justifyContent: 'center'
+    }
 });
 
-
 AppRegistry.registerComponent('ReactNativeStarter', () => ReactNativeStarter);
-

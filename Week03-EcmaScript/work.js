@@ -19,34 +19,40 @@ var primeNumbers = function() {
     for (let o of prime) {
         console.log(o);
     }
-}
+};
 primeNumbers();
 
 var address = function(obj) {
-
     for (var j in obj) {
-        console.log(j + ": " + obj[j]);
+        console.log(j + ': ' + obj[j]);
     }
-
-}
+};
 
 var person = {
-    firstName: "George",
-    lastName: "Washington",
-    address: "3200 Mount Vernon Hwy",
-    city: "Mt Vernon",
-    state: "VA",
-    zip: "22121"
-}
+    firstName: 'George',
+    lastName: 'Washington',
+    address: '3200 Mount Vernon Hwy',
+    city: 'Mt Vernon',
+    state: 'VA',
+    zip: '22121'
+};
 
 address(person);
 
 class calculator {
-    add(operandA, operandB) { return operandA + operandB; }
-    subtract(operandA, operandB) { return operandA - operandB; }
-    multiply(operandA, operandB) { return operandA * operandB; }
-    divide(operandA, operandB) { return operandA / operandB; }
-};
+    add(operandA, operandB) {
+        return operandA + operandB;
+    }
+    subtract(operandA, operandB) {
+        return operandA - operandB;
+    }
+    multiply(operandA, operandB) {
+        return operandA * operandB;
+    }
+    divide(operandA, operandB) {
+        return operandA / operandB;
+    }
+}
 
 var calc = new calculator();
 

@@ -26,10 +26,11 @@ app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) { 'use strict';
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function(req, res, next) {
+    'use strict';
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handlers
@@ -37,24 +38,26 @@ app.use(function(req, res, next) { 'use strict';
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) { 'use strict';
-    res.status(err.status || 500);
-		console.log(err);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        'use strict';
+        res.status(err.status || 500);
+        console.log(err);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) { 'use strict';
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+app.use(function(err, req, res, next) {
+    'use strict';
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 function getPostOptions(body) {
@@ -68,31 +71,30 @@ function getPostOptions(body) {
 }
 
 const userMiles = document.getElementById('userInput').value;
-  fetch('/calculateFeetFromMiles' + '?miles=' + userMiles)
-      .then((response) => response.json())
-      .then((response) => {
-          const displayArea = document.getElementById('displayArea');
-          displayArea.innerHTML = JSON.stringify(response, null, 4);
-      })
-      .catch(ex => {
-          console.log(ex);
-      });
+fetch('/calculateFeetFromMiles' + '?miles=' + userMiles)
+    .then(response => response.json())
+    .then(response => {
+        const displayArea = document.getElementById('displayArea');
+        displayArea.innerHTML = JSON.stringify(response, null, 4);
+    })
+    .catch(ex => {
+        console.log(ex);
+    });
 
 function callServer() {
     const userInput = document.getElementById('userInput').value;
-    const query = {propForServer: userInput};
+    const query = { propForServer: userInput };
 
     fetch('/some-url', getPostOptions(query))
-        .then((response) => response.json())
-        .then((response) => {
+        .then(response => response.json())
+        .then(response => {
             const displayArea = document.getElementById('displayArea');
             displayArea.innerHTML = JSON.stringify(response, null, 4);
         })
-        .catch((ex) => {
+        .catch(ex => {
             console.log(ex);
         });
-  
 }
 
 module.exports = app;
-0
+0;

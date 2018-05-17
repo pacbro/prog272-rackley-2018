@@ -27,7 +27,7 @@ module.exports = function(config) {
         // web server port
         port: 9876,
 
-	preprocessors: { '**/*.html': [] },
+        preprocessors: { '**/*.html': [] },
 
         // enable / disable colors in the output (reporters and logs)
         colors: true,
@@ -48,10 +48,10 @@ module.exports = function(config) {
         // Set to false to watch files for changes
         singleRun: false,
 
-        plugins: ['karma-jasmine',
+        plugins: [
+            'karma-jasmine',
             'karma-spec-reporter',
             'karma-phantomjs-launcher'
         ]
-
     });
 };

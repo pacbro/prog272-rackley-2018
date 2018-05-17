@@ -22,7 +22,6 @@ const addresses = [
         fax: '(202) 224-0238',
         tollfree: '(866) 481-9186'
     }
-
 ];
 
 export default addresses;
