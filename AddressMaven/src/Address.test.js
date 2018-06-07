@@ -153,4 +153,25 @@ describe('address test', function() {
         getChild(wrapper, 'div', 1);
         expect(wrapper.contains(welcome)).toEqual(true);
     });
+    const afterClickFieldTest = (wrapper, finder) => {
+         setImmediate(() => {
+                 wrapper.update();
+                 wrapper.instance().setAddress(0);
+                 setImmediate(() => {
+                         wrapper.update();
+                         try {
+                                 finder();
+                         } catch (e) {
+                                 console.log(e);
+                         }
+                 });
+         });
+    };
+
+    it('renders state of firstName after button click', () => {
+         const wrapper = shallow(<Address addressList={addresses}/>);
+         afterClickFieldTest(wrapper, () => {
+                 expect(wrapper.find('AddressShow').prop('address').firstName).toEqual('Patty');
+         });
+    });
 });

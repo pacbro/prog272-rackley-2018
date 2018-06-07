@@ -57,7 +57,7 @@ class AddressShow extends Component {
                 <AddressShow address={this.state.address} />
 
 <RaisedButton
-    label="Right"
+    label="Minus"
     labelPosition="before"
     primary={true}
         icon={
@@ -66,11 +66,11 @@ class AddressShow extends Component {
         </FontIcon>
     }
     style={styles.button}
-    onClick={this.props.setAddressMinus}
+    onClick={this.props.setAddress(-1, e)}
 />
 
 <RaisedButton
-    label="Left"
+    label="Plus"
     labelPosition="before"
     primary={true}
         icon={
@@ -79,7 +79,7 @@ class AddressShow extends Component {
         </FontIcon>
     }
     style={styles.button}
-    onClick={this.props.setAddressPlus}
+    onClick={this.props.setAddress(1, e)}
 />
             </div>
         );

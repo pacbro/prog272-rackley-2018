@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import '../App.css';
-
 import RaisedButton from 'material-ui/RaisedButton'
 import ActionAndroid from 'material-ui/svg-icons/action/android';
+import tempAddressList from '../address-list';
 
 class Address extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.debug = false;
-        this.log('CONSTRUCTOR', this.props.address);
-        console.log('ADDRESS PROPS', typeof this.props);
-        const address = fetch('./routes/index.js')
-  .then(function(response) {
-    return addresses();
-  });
+        this.canceled = false;
+        this.state = {
+            addressIndex: 0,
+            addressList: [{}],
+            address: tempAddressList[0]
+        };
+        this.log('Temp Address List:', tempAddressList);
+    }
 
+    componentDidMount() {
+       this.getAddressList();
+    }
+
+    componentWillUnmount() {
+        this.canceled = true;
+    }
+
+    getAddressList() {
+      fetch (/address-list)
+      .then(addressListFromServer = address-list.json())
+      .then(if (!this.canceled) {
+        this.setState({addressList: addressListFromServer});
+        this.setState({index: 0});)
+}
+    }
         this.addressIndex = 0;
         this.state = {
             address: AddressList[this.addressIndex],
@@ -30,21 +48,7 @@ class Address extends Component {
         this.debug = true;
     }
 
-    setAddress = () => {
-        const address = this.props.addressList[1];
-
-        this.setState({
-            firstName: address.firstName,
-            lastName: address.lastName,
-            address: address.address,
-            city: address.city,
-            state: address.state,
-            zip: address.zip,
-            phone: address.phone,
-            fax: address.fax,
-            tollfree: address.tollfree
-        });
-    };
+    setAddress = (offset) => { ... }
 
     log(message, message2 = '', message3 = '') {
         if (this.debug) {
@@ -53,39 +57,6 @@ class Address extends Component {
         }
     }
 
-
-    setAddressPlus = event => {
-if (this.addressIndex.length =! this.addressIndex) {
-        this.addressIndex += this.addressIndex;
-
-        this.setState({
-            address: addressList[this.addressIndex]
-          }
-          else {
-
-            this.setState({
-            address: addressList[this.addressIndex.length]
-          }
-              }
-            });
-          };
-
-          setAddressMinus = event => {
-      if (this.addressIndex =! 0) {
-              this.addressIndex += this.addressIndex;
-
-              this.setState({
-                  address: addressList[this.addressIndex]
-                }
-                else {
-
-                  this.setState({
-                  address: addressList[0]
-                }
-                    }
-                  });
-                };
-
     render() {
         this.log('RENDER', this.props);
         <AddressShow
@@ -93,7 +64,7 @@ if (this.addressIndex.length =! this.addressIndex) {
             setAddress={this.setAddress}
         />;
 
-}
+      }
 }
 
 export default Address;
