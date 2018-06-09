@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Address from './components/AddressShow';]
+import Address from '././components/AddressShow';]
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
@@ -29,15 +29,15 @@ const defaultFieldTest = (name, index, talkToMe) => {
 };
 
 const afterClickFieldTest = (name) => {
-        wrapper = shallow(<AddressShow address={addresses[0]} setAddress={setAddress}/>);
-        const patty = <p className="App-intro">{name}</p>;
-        wrapper.find('#setAddress').simulate('click');
-        //console.log(wrapper.debug());
-        expect(wrapper.contains(patty)).toBe(true);
+    wrapper = shallow(<AddressShow address={addresses[0]} setAddress={setAddress}/>);
+    const patty = <p className="App-intro">{name}</p>;
+    wrapper.find('#setAddress').simulate('click');
+    //console.log(wrapper.debug());
+    expect(wrapper.contains(patty)).toBe(true);
 };
 
 it('renders and displays the first name', () => {
-        defaultFieldTest('First Name: unknown', 0);
-        afterClickFieldTest('First Name: ' + addressTest.firstName, 0);
+    defaultFieldTest('First Name: unknown', 0);
+    afterClickFieldTest('First Name: ' + addressTest.firstName, 0);
 });
 }

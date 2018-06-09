@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:30026",
+  "test": "jest --watch --coverage",
   "dependencies": {
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
@@ -18,5 +19,22 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "react-test-renderer": "^16.3.1"
-  }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+        "**/*.{js,jsx}",
+        "!**/coverage/**",
+        "!**/node_modules/**",
+        "!**/registerServiceWorker.js",
+        "!**/elf-styles.js",
+        "!src/index.js"
+    ]
+  },
+  "jest": {
+    "preset": "jest-expo",
+     "transformIgnorePatterns": [
+         "!node_modules/react-runtime"
+     ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
+},
 }
