@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import addresses from './address-list';
-import RaisedButton from 'material-ui/RaisedButton'
-import ActionAndroid from 'material-ui/svg-icons/action/android';
+import Button from '@material-ui/core/Button'
+import ActionAndroid from '@material-ui/core/svg-icons/action/android';
 
 export default class Address extends React.Component {
      constructor(props) {

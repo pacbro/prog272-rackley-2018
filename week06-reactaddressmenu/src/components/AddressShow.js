@@ -3,9 +3,9 @@ import '../App.css';
 import Address from './Address';
 import PropTypes from 'prop-types';
 import styles from './elf-styles';
-import FontIcon from 'material-ui/FontIcon';
-import { red500 } from 'material-ui/styles/colors';
-import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from '@material-ui/core/FontIcon';
+import { red500 } from '@material-ui/core/styles/colors';
+import Button from '@material-ui/core/Button';
 
 AddressShow.propTypes = {
     address: PropTypes.shape({
@@ -56,7 +56,7 @@ class AddressShow extends Component {
                 </p>
                 <AddressShow address={this.state.address} />
 
-<RaisedButton
+<Button
     label="Set Address"
     labelPosition="before"
     primary={true}

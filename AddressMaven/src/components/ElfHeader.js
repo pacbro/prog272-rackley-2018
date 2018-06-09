@@ -1,57 +1,83 @@
-import { Link } from 'react-router-dom';
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import React, { Component } from 'react';
+
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Drawer from '@material-ui/core/Drawer';
+import IconButton from '@material-ui/core/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import MenuIcon from '@material-ui/icons/Menu';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import { gitItems, demoItems } from './tileData';
+
+
+const styles = {
+    root: {
+        flexGrow: 1
+    },
+    flex: {
+        flex: 1
+    },
+};
+
 
 class ElfHeader extends Component {
-constructor(props) {
-    super(props);
-    this.state = {
-        open: false
-    };
-
-handleToggle = () => this.setState({ open: !this.state.open });
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
     }
-    getFileName = () => {
-        console.log('getFileName called.');
-        this.setState({ file: 'url-file.js' });
-    };
+
+    handleToggle = () => this.setState({ open: !this.state.open });
 
     render() {
-<div>
-  <div className="App">
-      <ul>
-          <li><Link to="/">Address</Link></li>
-          <li><Link to="/get-file">Get File</Link></li>          
-      </ul>
-  </div>     
-  <div>
-    <AppBar
-        title="Address Maven"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
-        onLeftIconButtonClick={this.handleToggle}
-    />
-    <Drawer
-        docked={false}
-        width={200}
-        open={this.state.open}
-        onRequestChange={this.handleToggle}
-    >
-        <AppBar title="Address Maven"/>
+        const { classes } = this.props;
+        const sideList = (
+            <div className={classes.list}>
+                <List>{gitItems}</List>
+                <Divider />
+                <List>{demoItems}</List>
+            </div>
+        );
+        return (
+            <div>
+                <AppBar
+                    position="static"
+                >
+                    <Toolbar>
+                        <IconButton
+                            className={classes.menuButton}
+                            color="inherit"
+                            aria-label="Menu"
+                            onClick={this.handleToggle}
+                        >
+                            <MenuIcon/>
+                        </IconButton>
+                        <Typography variant="title" color="inherit" className={classes.flex}>
+                            GitExplorer
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <Drawer open={this.state.open} onClose={this.handleToggle}>
+                    <div
+                        role="button"
+                        onClick={this.handleToggle}
+                        onKeyDown={this.handleToggle}
+                    >
+                        {sideList}
+                    </div>
+                </Drawer>
 
-        <MenuItem
-            primaryText='Address'
-            containerElement={<Link to="/"/>}
-            onClick={this.handleToggle}
-        />
-  <MenuItem
-            primaryText='GetFile'
-            containerElement={<Link to="/"/>}
-            onClick={this.handleToggle}
-        />
+            </div>
+        );
+    }
+}
 
-    </Drawer>
-</div>
-</div>
-}
-}
+ElfHeader.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(ElfHeader);

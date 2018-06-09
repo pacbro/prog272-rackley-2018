@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import AppBar from '@material-ui/core/AppBar';
+import Drawer from '@material-ui/core/Drawer';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class ElfHeader extends Component {
 constructor(props) {
