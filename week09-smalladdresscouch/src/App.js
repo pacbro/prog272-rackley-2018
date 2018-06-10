@@ -90,10 +90,9 @@ update = () => {
   render() {
     return (
       <div className="App">
-        <
         <p>{this.state.firstName}</p>
         <p>{this.state.lastName}</p>
-        <div>
+
             <FormControl className={classes.formControl}>
                 <InputLabel htmlFor="name-simple">First Name</InputLabel>
                 <Input id="name-simple"
@@ -107,7 +106,6 @@ update = () => {
                        value={this.state.lastName}
                        onChange={this.handleLast} />
             </FormControl>
-</header>
         <Button
     color='secondary'
     variant='raised'
@@ -122,8 +120,7 @@ update = () => {
 >
     Show
 </Button>
-
-      </div>
+</div>
     );
   }
 }
