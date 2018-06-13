@@ -50,38 +50,37 @@ class AddressShow extends Component {
             console.log('ADDRESS RENDER');
         }
         return (
+          const {classes} = this.props;
+   const editDialog = this.state.editOpen ? (
+       <AddressEdit
+           address={this.props.name}
+           open={this.state.editOpen}
+           addressEdit={this.addressEdit}
+       />
+   ) : (
+       <div/>
+   );
+
+   return (
+let editopen = false;
+       <div className={classes.container}>
             <div className="App">
                 <p className="App-intro">
                     firstName: {this.props.address.firstName}
                 </p>
                 <AddressShow address={this.state.address} />
+                return (
 
-<Button
-    label="Minus"
-    labelPosition="before"
-    primary={true}
-        icon={
-        <FontIcon class="material-icons" color={red500}>
-            rss_feed
-        </FontIcon>
-    }
-    style={styles.button}
-    onClick={this.props.setAddress(-1, e)}
-/>
-
-<Button
-    label="Plus"
-    labelPosition="before"
-    primary={true}
-        icon={
-        <FontIcon class="material-icons" color={red500}>
-            rss_feed
-        </FontIcon>
-    }
-    style={styles.button}
-    onClick={this.props.setAddress(1, e)}
-/>
-            </div>
-        );
-    }
-}
+                      <div className={classes.container}>
+                          // ALL YOUR ADDRESS SHOW JSX HERE
+                          <Button
+                              color="secondary"
+                              variant="raised"
+                              onClick={() => this.setState({editOpen: true})}
+                           >
+                              Edit
+                          </Button>
+                        {editDialog}
+                      <div>
+                  )
+              }}
