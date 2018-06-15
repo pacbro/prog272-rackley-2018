@@ -4,13 +4,13 @@ import Drawer from '@material-ui/core/Drawer';
 import MenuItem from '@material-ui/core/MenuItem';
 
 class ElfHeader extends Component {
-constructor(props) {
-    super(props);
-    this.state = {
-        open: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
 
-handleToggle = () => this.setState({ open: !this.state.open });
+        handleToggle = () => this.setState({ open: !this.state.open });
     }
     getFileName = () => {
         console.log('getFileName called.');
@@ -18,40 +18,43 @@ handleToggle = () => this.setState({ open: !this.state.open });
     };
 
     render() {
-<div>
-  <div className="App">
-      <ul>
-          <li><Link to="/">Address</Link></li>
-          <li><Link to="/get-file">Get File</Link></li>          
-      </ul>
-  </div>     
-  <div>
-    <AppBar
-        title="Address Maven"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
-        onLeftIconButtonClick={this.handleToggle}
-    />
-    <Drawer
-        docked={false}
-        width={200}
-        open={this.state.open}
-        onRequestChange={this.handleToggle}
-    >
-        <AppBar title="Address Maven"/>
+        <div>
+            <div className="App">
+                <ul>
+                    <li>
+                        <Link to="/">Address</Link>
+                    </li>
+                    <li>
+                        <Link to="/get-file">Get File</Link>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <AppBar
+                    title="Address Maven"
+                    iconClassNameRight="muidocs-icon-navigation-expand-more"
+                    onLeftIconButtonClick={this.handleToggle}
+                />
+                <Drawer
+                    docked={false}
+                    width={200}
+                    open={this.state.open}
+                    onRequestChange={this.handleToggle}
+                >
+                    <AppBar title="Address Maven" />
 
-        <MenuItem
-            primaryText='Address'
-            containerElement={<Link to="/"/>}
-            onClick={this.handleToggle}
-        />
-  <MenuItem
-            primaryText='GetFile'
-            containerElement={<Link to="/"/>}
-            onClick={this.handleToggle}
-        />
-
-    </Drawer>
-</div>
-</div>
-}
+                    <MenuItem
+                        primaryText="Address"
+                        containerElement={<Link to="/" />}
+                        onClick={this.handleToggle}
+                    />
+                    <MenuItem
+                        primaryText="GetFile"
+                        containerElement={<Link to="/" />}
+                        onClick={this.handleToggle}
+                    />
+                </Drawer>
+            </div>
+        </div>;
+    }
 }

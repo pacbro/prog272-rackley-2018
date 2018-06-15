@@ -1,4 +1,4 @@
-const fs=require("fs");
+const fs = require('fs');
 const debug = require('debug')('get-address');
 
 debug('Testing debug');
@@ -12,7 +12,7 @@ function readFile(fileName, callback) {
                 reject(err);
             }
             resolve({
-                'result': fileContents
+                result: fileContents
             });
         });
     });
@@ -20,7 +20,7 @@ function readFile(fileName, callback) {
 
 function getAddress(value, char) {
     'use strict';
-    return value.substring(0, value.lastIndexOf(char) -1);
+    return value.substring(0, value.lastIndexOf(char) - 1);
 }
 
 function getZip(value, char) {
@@ -40,21 +40,24 @@ function getCity(value, char, len) {
 function writeIt(label, value, noComma) {
     const comma = noComma ? '"' : '",';
     console.log('\t\t' + '"' + label + '": ' + '"' + value + comma);
-};
+}
 
 readFile('govtrack-address.json')
     .then(function(objectReturned) {
-        debug('We don\'t get a string back but an: ', typeof objectReturned);
+        debug("We don't get a string back but an: ", typeof objectReturned);
         debug('The object has a property:', Object.keys(objectReturned));
         debug('The type of the property is:', typeof objectReturned.result);
 
         var json = JSON.parse(objectReturned.result);
         debug('We were able to parse the JSON.');
         debug('Total records returned:', json.meta.limit);
-        debug('First person found', JSON.stringify(json.objects[0].person.name));
+        debug(
+            'First person found',
+            JSON.stringify(json.objects[0].person.name)
+        );
         const jsonLength = json.objects.length;
         for (var i = 0; i < jsonLength; i++) {
-            const open = (i === 0) ? '[\n\t{' : '\t{';
+            const open = i === 0 ? '[\n\t{' : '\t{';
             console.log(open);
             writeIt('firstName', json.objects[i].person.firstname);
             writeIt('lastName', json.objects[i].person.lastname);

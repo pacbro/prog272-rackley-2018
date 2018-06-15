@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from 'react-router-dom';
 configure({ adapter: new Adapter() });
 
 const getChild = (wrapper, element, index) => {
@@ -41,10 +41,15 @@ describe('jest test', function() {
         getChild(wrapper, 'div', 1);
         expect(wrapper.contains(fileSign)).toBe(true);
     });
-   
+
     it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<MemoryRouter><ElfHeader /></MemoryRouter>, div);
-    ReactDOM.unmountComponentAtNode(div);
-});
+        const div = document.createElement('div');
+        ReactDOM.render(
+            <MemoryRouter>
+                <ElfHeader />
+            </MemoryRouter>,
+            div
+        );
+        ReactDOM.unmountComponentAtNode(div);
+    });
 });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import addresses from './address-list';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
 import ActionAndroid from '@material-ui/core/svg-icons/action/android';
 
 class Address extends Component {
@@ -64,8 +64,7 @@ class Address extends Component {
             address={this.state.address}
             setAddress={this.setAddress}
         />;
-
-}
+    }
 }
 
 export default Address;

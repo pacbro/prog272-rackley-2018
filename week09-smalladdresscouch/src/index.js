@@ -12,14 +12,14 @@ const themePurple = createMuiTheme({
         primary: {
             light: purple[300],
             main: purple[500],
-            dark: purple[700],
+            dark: purple[700]
         },
         secondary: {
             light: green[300],
             main: green[500],
-            dark: green[700],
-        },
-    },
+            dark: green[700]
+        }
+    }
 });
 
 syncError = () => {
@@ -28,13 +28,13 @@ syncError = () => {
 
 sync = () => {
     this.syncDom.setAttribute('data-sync-state', 'syncing');
-    var opts = {live: true};
+    var opts = { live: true };
     this.db.replicate.to(this.remoteCouch, opts, this.syncError);
     this.db.replicate.from(this.remoteCouch, opts, this.syncError);
 };
 ReactDOM.render(
     <MuiThemeProvider theme={themePurple}>
-        <App/>
+        <App />
     </MuiThemeProvider>,
 
     document.getElementById('root')

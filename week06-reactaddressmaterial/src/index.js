@@ -10,8 +10,7 @@ import darkBaseTheme from '@material-ui/core/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from '@material-ui/core/styles/getMuiTheme';
 
 ReactDOM.render(
-    
-       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <App />
     </MuiThemeProvider>,
     document.getElementById('root')

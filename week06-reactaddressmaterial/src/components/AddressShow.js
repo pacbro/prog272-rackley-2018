@@ -56,18 +56,18 @@ class AddressShow extends Component {
                 </p>
                 <AddressShow address={this.state.address} />
 
-<Button
-    label="Set Address"
-    labelPosition="before"
-    primary={true}
-        icon={
-        <FontIcon class="material-icons" color={red500}>
-            rss_feed
-        </FontIcon>
-    }
-    style={styles.button}
-    onClick={this.props.setAddress}
-/>
+                <Button
+                    label="Set Address"
+                    labelPosition="before"
+                    primary={true}
+                    icon={
+                        <FontIcon class="material-icons" color={red500}>
+                            rss_feed
+                        </FontIcon>
+                    }
+                    style={styles.button}
+                    onClick={this.props.setAddress}
+                />
             </div>
         );
     }
